@@ -3,7 +3,6 @@ const cardMasterItems = [
 ]
 cardMasterItems.sort(() => 0.5 - Math.random());
 var selectedItems = [];
-console.log(cardMasterItems);
 function generateBoard() {
     var counter = 0;
     var divmainContainer = document.querySelector('#container');
