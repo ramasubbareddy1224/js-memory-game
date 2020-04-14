@@ -12,7 +12,7 @@ function generateBoard() {
         for (let inner = 0; inner < 4; inner++, counter++) {
             var divinner = document.createElement('div');
             divinner.setAttribute('class', 'inner-div-bg');
-            divinner.setAttribute('data-val', cardMasterItems[counter]);
+            divinner.setAttribute('data-index', counter);
             divinner.innerHTML = "?";
             divinner.addEventListener('click', checkElementMatch);
             divflex.appendChild(divinner);
@@ -25,9 +25,9 @@ function checkElementMatch(event) {
 
     const element = event.target;
     if (element.innerHTML == "?" && selectedItems.length<=1) {
-        const elementVal = element.getAttribute('data-val');
-        element.innerHTML = elementVal;
-        var item = { ele: element, val: elementVal };
+        const elementVal = element.getAttribute('data-index');
+        element.innerHTML = cardMasterItems[elementVal];
+        var item = { ele: element, val: cardMasterItems[elementVal] };
         selectedItems.push(item);
         if (selectedItems.length == 2) {
             if (selectedItems[0].val != selectedItems[1].val) {
