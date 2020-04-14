@@ -24,7 +24,7 @@ function generateBoard() {
 function checkElementMatch(event) {
 
     const element = event.target;
-    if (element.innerHTML == "?") {
+    if (element.innerHTML == "?" && selectedItems.length<=1) {
         const elementVal = element.getAttribute('data-val');
         element.innerHTML = elementVal;
         var item = { ele: element, val: elementVal };
